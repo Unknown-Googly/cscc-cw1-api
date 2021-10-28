@@ -4,6 +4,8 @@ WORKDIR /build
 COPY *.csproj .
 RUN dotnet restore
 
+RUN dotnet ef database update
+
 COPY . ./
 RUN dotnet publish -c release -o out
 
